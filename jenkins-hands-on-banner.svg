@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="40%" style="stop-color:#1a1f35"/>
+      <stop offset="100%" style="stop-color:#0f1629"/>
+    </linearGradient>
+    <linearGradient id="jenkinsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0D6B7"/>
+      <stop offset="100%" style="stop-color:#D24939"/>
+    </linearGradient>
+    <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D24939;stop-opacity:0"/>
+      <stop offset="15%" style="stop-color:#D24939;stop-opacity:1"/>
+      <stop offset="85%" style="stop-color:#D24939;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#D24939;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="glowLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D24939;stop-opacity:0"/>
+      <stop offset="30%" style="stop-color:#EF6B4A;stop-opacity:0.6"/>
+      <stop offset="70%" style="stop-color:#EF6B4A;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#D24939;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.06"/>
+    </pattern>
+    <!-- Dot pattern -->
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.6" fill="#D24939" opacity="0.15"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bgGrad)"/>
+  <rect width="1200" height="400" fill="url(#grid)"/>
+  <rect width="1200" height="400" fill="url(#dots)"/>
+
+  <!-- Subtle radial glow behind center -->
+  <circle cx="600" cy="200" r="280" fill="#D24939" opacity="0.03"/>
+  <circle cx="600" cy="200" r="160" fill="#D24939" opacity="0.04"/>
+
+  <!-- CI/CD Pipeline decoration - top pipe -->
+  <rect x="0" y="48" width="1200" height="2" fill="url(#pipeGrad)" opacity="0.3"/>
+  <rect x="0" y="48" width="1200" height="1" fill="url(#glowLine)" opacity="0.5" filter="url(#softGlow)"/>
+
+  <!-- CI/CD Pipeline decoration - bottom pipe -->
+  <rect x="0" y="350" width="1200" height="2" fill="url(#pipeGrad)" opacity="0.3"/>
+  <rect x="0" y="350" width="1200" height="1" fill="url(#glowLine)" opacity="0.5" filter="url(#softGlow)"/>
+
+  <!-- Pipeline stage nodes on top line -->
+  <g opacity="0.5">
+    <circle cx="150" cy="49" r="4" fill="#D24939" filter="url(#glow)"/>
+    <circle cx="350" cy="49" r="4" fill="#D24939" filter="url(#glow)"/>
+    <circle cx="550" cy="49" r="4" fill="#D24939" filter="url(#glow)"/>
+    <circle cx="750" cy="49" r="4" fill="#D24939" filter="url(#glow)"/>
+    <circle cx="950" cy="49" r="4" fill="#D24939" filter="url(#glow)"/>
+  </g>
+
+  <!-- Pipeline stage nodes on bottom line -->
+  <g opacity="0.5">
+    <circle cx="250" cy="351" r="4" fill="#D24939" filter="url(#glow)"/>
+    <circle cx="450" cy="351" r="4" fill="#D24939" filter="url(#glow)"/>
+    <circle cx="650" cy="351" r="4" fill="#D24939" filter="url(#glow)"/>
+    <circle cx="850" cy="351" r="4" fill="#D24939" filter="url(#glow)"/>
+    <circle cx="1050" cy="351" r="4" fill="#D24939" filter="url(#glow)"/>
+  </g>
+
+  <!-- Jenkins Butler Icon (simplified) -->
+  <g transform="translate(600, 120)" opacity="0.9">
+    <!-- Head circle -->
+    <circle cx="0" cy="0" r="38" fill="none" stroke="url(#jenkinsGrad)" stroke-width="2.5" opacity="0.8"/>
+    <!-- Mustache-like shape (Jenkins butler reference) -->
+    <path d="M -12 8 Q -6 16 0 10 Q 6 16 12 8" fill="none" stroke="#F0D6B7" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <!-- Hat brim -->
+    <path d="M -28 -18 Q 0 -32 28 -18" fill="none" stroke="#F0D6B7" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <!-- Eyes -->
+    <circle cx="-10" cy="-4" r="2.5" fill="#F0D6B7" opacity="0.7"/>
+    <circle cx="10" cy="-4" r="2.5" fill="#F0D6B7" opacity="0.7"/>
+  </g>
+
+  <!-- Main Title -->
+  <text x="600" y="210" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="52" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="2">
+    Jenkins
+    <tspan fill="#D24939"> Hands-On</tspan>
+    Labs
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="250" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" fill="#8b949e" text-anchor="middle" letter-spacing="4" font-weight="300">
+    CI/CD PIPELINES · AWS · TERRAFORM · KUBERNETES
+  </text>
+
+  <!-- Session count badges -->
+  <g transform="translate(600, 295)">
+    <!-- Badge containers -->
+    <rect x="-280" y="-14" rx="12" ry="12" width="88" height="28" fill="#D24939" opacity="0.15" stroke="#D24939" stroke-width="0.5" stroke-opacity="0.3"/>
+    <text x="-236" y="5" font-family="'Segoe UI', 'Courier New', monospace" font-size="11" fill="#EF6B4A" text-anchor="middle" font-weight="600">8 LABS</text>
+
+    <rect x="-170" y="-14" rx="12" ry="12" width="108" height="28" fill="#D24939" opacity="0.15" stroke="#D24939" stroke-width="0.5" stroke-opacity="0.3"/>
+    <text x="-116" y="5" font-family="'Segoe UI', 'Courier New', monospace" font-size="11" fill="#EF6B4A" text-anchor="middle" font-weight="600">FREESTYLE</text>
+
+    <rect x="-40" y="-14" rx="12" ry="12" width="108" height="28" fill="#D24939" opacity="0.15" stroke="#D24939" stroke-width="0.5" stroke-opacity="0.3"/>
+    <text x="14" y="5" font-family="'Segoe UI', 'Courier New', monospace" font-size="11" fill="#EF6B4A" text-anchor="middle" font-weight="600">PIPELINES</text>
+
+    <rect x="90" y="-14" rx="12" ry="12" width="108" height="28" fill="#D24939" opacity="0.15" stroke="#D24939" stroke-width="0.5" stroke-opacity="0.3"/>
+    <text x="144" y="5" font-family="'Segoe UI', 'Courier New', monospace" font-size="11" fill="#EF6B4A" text-anchor="middle" font-weight="600">MULTIBRANCH</text>
+
+    <rect x="220" y="-14" rx="12" ry="12" width="60" height="28" fill="#D24939" opacity="0.15" stroke="#D24939" stroke-width="0.5" stroke-opacity="0.3"/>
+    <text x="250" y="5" font-family="'Segoe UI', 'Courier New', monospace" font-size="11" fill="#EF6B4A" text-anchor="middle" font-weight="600">K8S</text>
+  </g>
+
+  <!-- Author line -->
+  <text x="600" y="340" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#484f58" text-anchor="middle" letter-spacing="2">
+    OGULCAN ERDAG · github.com/OgulcanErdag
+  </text>
+
+  <!-- Decorative corner brackets -->
+  <g stroke="#D24939" stroke-width="1.5" opacity="0.25" fill="none">
+    <!-- Top-left -->
+    <path d="M 30 70 L 30 55 L 45 55"/>
+    <!-- Top-right -->
+    <path d="M 1170 70 L 1170 55 L 1155 55"/>
+    <!-- Bottom-left -->
+    <path d="M 30 330 L 30 345 L 45 345"/>
+    <!-- Bottom-right -->
+    <path d="M 1170 330 L 1170 345 L 1155 345"/>
+  </g>
+</svg>
